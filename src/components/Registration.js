@@ -1396,7 +1396,7 @@ export default function SignUp() {
 											setCropper(instance);
 										}}
 									/>
-									<Grid className='img-preview' />
+									{/* <Grid className='img-preview' /> */}
 								</Grid>
 							</Grid>
 						</Grid>
