@@ -24,6 +24,7 @@ import Container from "@material-ui/core/Container";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import "cropperjs/dist/cropper.css";
 
 function Copyright() {
 	return (
@@ -98,7 +99,9 @@ export default function SignUp() {
 		reader.onload = () => {
 			setImage(reader.result);
 		};
+		console.log(files);
 		reader.readAsDataURL(files[0]);
+		console.log(reader);
 	};
 
 	const getCropData = () => {
@@ -106,7 +109,6 @@ export default function SignUp() {
 			setCropData(cropper.getCroppedCanvas().toDataURL());
 		}
 	};
-	console.log(currentState);
 	var states = [
 		{
 			state: "Andhra Pradesh",
@@ -1385,6 +1387,7 @@ export default function SignUp() {
 										preview='.img-preview'
 										src={image}
 										viewMode={1}
+										dragMode={"move"}
 										guides={true}
 										minCropBoxHeight={10}
 										minCropBoxWidth={10}
