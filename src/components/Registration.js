@@ -30,11 +30,6 @@ function Copyright() {
 	return (
 		<Typography variant='body2' color='textSecondary' align='center'>
 			{"Copyright © "}
-			<Link color='inherit' href='https://material-ui.com/'>
-				Your Website
-			</Link>{" "}
-			{new Date().getFullYear()}
-			{"."}
 		</Typography>
 	);
 }
@@ -74,6 +69,7 @@ export default function SignUp() {
 	const [districts, setDistricts] = React.useState([]);
 	const [cropData, setCropData] = React.useState("#");
 	const [cropper, setCropper] = React.useState();
+	const [file, setFile] = React.useState(undefined);
 	const size = useMediaQuery("(min-width:600px)");
 	const handleChange = (event) => {
 		console.log(event.target.value);
@@ -1373,12 +1369,24 @@ export default function SignUp() {
 										/>
 									</Button>
 								</Grid>
-								<Grid item xs={8} sm={6}>
+								<Grid item>
 									<Typography>Upload ID proof</Typography>
 									<Button variant='contained' component='label'>
 										Upload File
-										<input type='file' accept='.pdf' hidden />
+										<input
+											type='file'
+											accept='.pdf'
+											hidden
+											onChange={(event) => {
+												setFile(event.target.files[0]);
+											}}
+										/>
 									</Button>
+									{file ? (
+										<Typography>{file.name}</Typography>
+									) : (
+										<Typography></Typography>
+									)}
 								</Grid>
 								<Grid item xs={8} sm={6}>
 									<Cropper
