@@ -29,7 +29,41 @@ import "cropperjs/dist/cropper.css";
 function Copyright() {
 	return (
 		<Typography variant='body2' color='textSecondary' align='center'>
-			{"Copyright © "}
+			I hereby declare that 1. I am / was not a registered skater with a State /
+			U.T Unit other than the present one. 2. As I am aware that only the Roller
+			Skating Federation of India (RSFI) registered skaters are allowed to
+			participate in Internationals,Asians and RSFI approved National – All
+			India – Memorial – Invitational Tournaments and the State / U.T Units
+			approved State-District& Other local championship, hence I undertake not
+			to participate in any competition & / or championship which does not have
+			approval of RSFI & State /U.T. Unit as mentioned above. 3. I have attached
+			the proof of identity , Address and date of birth as per RSFI guidelines
+			and I will produce necessary originaldocuments whenever asked by
+			RSFI/State Association/District Association. 4. I understand that
+			completing online registration and making fee payment does not mean the
+			completion of registration process. Myregistration is subject to approval
+			of District & State Units and RSFI. 5. I accept to share the information
+			provided by me to RSFI and any service providers associated with RSFI. 6.
+			I accept to receive newsletters / any communications from RSFI in a form
+			of mail, email, phone call, SMS. 7. All the information entered in the
+			+online registration system (as furnished above) are true and I am
+			responsible for the correctnessof the information provided. 8. I will
+			accept any decision taken by RSFI if any of the information given above
+			found wrong and the fee paid will be forfeited. RSFIholds all the rights
+			to reject or cancel the registration of the skater anytime. 9. I will
+			produce all the original documents and supporting documents whenever
+			necessarily asked by RSFI/State Association/DistrictAssociation. I
+			undertake to abide by all the rules and regulations issued from time to
+			time by RSFI/State Association/DistrictAssociation. 10. I / My ward am/is
+			aware that Rules and regulations are subject to change. 11. I hereby
+			declare that all the information furnished by me is true and correct to
+			the best of my knowledge and belief. 12. I undertake that I shall not drag
+			the name of the Game & Championship in any adverse manner either on Social
+			Media or in theprint media. 13. I shall not oppose any decision taken in
+			the view of betterment of the Game as well as Championship by my coach/
+			manager/Organizing committee/ District/ State/ Federation. 14. I also
+			undertake that I shall not cause any harm / damage to the reputation of
+			the Game(Championship)/Players/OfOf
 		</Typography>
 	);
 }
@@ -1232,7 +1266,7 @@ export default function SignUp() {
 								</Grid>
 								<Grid item xs={size ? 6 : 12}>
 									<FormControl className={classes.formControl}>
-										<InputLabel id='designation'>Residing State</InputLabel>
+										<InputLabel id='designation'>Residing District</InputLabel>
 										<Select
 											labelId='designation'
 											required
@@ -1247,6 +1281,40 @@ export default function SignUp() {
 									</FormControl>
 								</Grid>
 								<Grid item xs={size ? 6 : 12}>
+									<FormControl className={classes.formControl}>
+										<InputLabel id='designation'>Representing State</InputLabel>
+										<Select
+											labelId='designation'
+											required
+											id='demo-simple-select-placeholder-label'
+											value={currentState}
+											onChange={handleStateChange}
+										>
+											{states.map((state) => (
+												<MenuItem value={state.state}>{state.state}</MenuItem>
+											))}
+										</Select>
+									</FormControl>
+								</Grid>
+								<Grid item xs={size ? 6 : 12}>
+									<FormControl className={classes.formControl}>
+										<InputLabel id='designation'>
+											Representing District
+										</InputLabel>
+										<Select
+											labelId='designation'
+											required
+											id='demo-simple-select-placeholder-label'
+											value={districts}
+											onChange={handleStateChange}
+										>
+											{districts.map((district) => (
+												<MenuItem value={district}>{district}</MenuItem>
+											))}
+										</Select>
+									</FormControl>
+								</Grid>
+								<Grid item xs={size ? 9 : 12}>
 									<FormControl component='fieldset'>
 										<FormLabel component='legend'>Discipline</FormLabel>
 										<RadioGroup
@@ -1257,59 +1325,63 @@ export default function SignUp() {
 											row
 											classes={classes.radio}
 										>
-											<Grid item xs={8} sm={9}>
-												<FormControlLabel
-													value='adjustable'
-													control={<Radio />}
-													label='ADJUSTABLE (TENACITY / BEGINNER SKATES)'
-												/>
-											</Grid>
-											<Grid item xs={6} sm={5}>
-												<FormControlLabel
-													value='quad'
-													control={<Radio />}
-													label='SPEED-QUAD'
-												/>
-											</Grid>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='inline'
-													control={<Radio />}
-													label='SPEED-INLINE'
-												/>
-											</Grid>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='artistic'
-													control={<Radio />}
-													label='ARTISTIC'
-												/>
-											</Grid>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='roller'
-													control={<Radio />}
-													label='ROLLER HOCKEY'
-												/>
-											</Grid>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='inline-hockey'
-													control={<Radio />}
-													label='INLINE HOCKEY'
-												/>
-											</Grid>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='inline-freestyle'
-													control={<Radio />}
-													label='INLINE FREESTYLE'
-												/>
-											</Grid>
+											<Box display='flex' flexDirection='row'>
+												<Grid item xs={9} sm={9}>
+													<FormControlLabel
+														value='adjustable'
+														control={<Radio />}
+														label='ADJUSTABLE (TENACITY / BEGINNER SKATES)'
+													/>
+												</Grid>
+												<Grid item xs={6} sm={5}>
+													<FormControlLabel
+														value='quad'
+														control={<Radio />}
+														label='SPEED-QUAD'
+													/>
+												</Grid>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='inline'
+														control={<Radio />}
+														label='SPEED-INLINE'
+													/>
+												</Grid>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='artistic'
+														control={<Radio />}
+														label='ARTISTIC'
+													/>
+												</Grid>
+											</Box>
+											<Box display='flex' flexDirection='row'>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='roller'
+														control={<Radio />}
+														label='ROLLER HOCKEY'
+													/>
+												</Grid>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='inline-hockey'
+														control={<Radio />}
+														label='INLINE HOCKEY'
+													/>
+												</Grid>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='inline-freestyle'
+														control={<Radio />}
+														label='INLINE FREESTYLE'
+													/>
+												</Grid>
+											</Box>
 										</RadioGroup>
 									</FormControl>
 								</Grid>
-								<Grid item xs={size ? 8 : 12}>
+								<Grid item xs={size ? 9 : 12}>
 									<FormControl component='fieldset'>
 										<FormLabel component='legend'>Discipline</FormLabel>
 										<RadioGroup
@@ -1319,41 +1391,43 @@ export default function SignUp() {
 											onChange={handleChange}
 											row
 										>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='inline-alpine'
-													control={<Radio />}
-													label='INLINE-ALPINE'
-												/>
-											</Grid>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='inline-downhill'
-													control={<Radio />}
-													label='INLINE-DOWNHILL'
-												/>
-											</Grid>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='roller-derby'
-													control={<Radio />}
-													label='ROLLER DERBY'
-												/>
-											</Grid>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='roller-free-style'
-													control={<Radio />}
-													label='ROLLER FREESTYLE'
-												/>
-											</Grid>
-											<Grid item xs={8} sm={6}>
-												<FormControlLabel
-													value='skateboarding'
-													control={<Radio />}
-													label='SKATEBOARDING'
-												/>
-											</Grid>
+											<Box display='flex' flexDirection='row'>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='inline-alpine'
+														control={<Radio />}
+														label='INLINE-ALPINE'
+													/>
+												</Grid>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='inline-downhill'
+														control={<Radio />}
+														label='INLINE-DOWNHILL'
+													/>
+												</Grid>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='roller-derby'
+														control={<Radio />}
+														label='ROLLER DERBY'
+													/>
+												</Grid>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='roller-free-style'
+														control={<Radio />}
+														label='ROLLER FREESTYLE'
+													/>
+												</Grid>
+												<Grid item xs={8} sm={6}>
+													<FormControlLabel
+														value='skateboarding'
+														control={<Radio />}
+														label='SKATEBOARDING'
+													/>
+												</Grid>
+											</Box>
 										</RadioGroup>
 									</FormControl>
 								</Grid>
